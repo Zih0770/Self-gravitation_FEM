@@ -1,0 +1,9 @@
+/home/sssou/Self-gravitation_FEM/build/CMakeFiles/edit_cache.dir
+/home/sssou/Self-gravitation_FEM/build/CMakeFiles/rebuild_cache.dir
+/home/sssou/Self-gravitation_FEM/build/meshing/CMakeFiles/meshing.dir
+/home/sssou/Self-gravitation_FEM/build/meshing/CMakeFiles/benchmark.dir
+/home/sssou/Self-gravitation_FEM/build/meshing/CMakeFiles/edit_cache.dir
+/home/sssou/Self-gravitation_FEM/build/meshing/CMakeFiles/rebuild_cache.dir
+/home/sssou/Self-gravitation_FEM/build/examples/CMakeFiles/ex1.dir
+/home/sssou/Self-gravitation_FEM/build/examples/CMakeFiles/edit_cache.dir
+/home/sssou/Self-gravitation_FEM/build/examples/CMakeFiles/rebuild_cache.dir
