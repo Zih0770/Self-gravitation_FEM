@@ -1,2 +1,0 @@
-/usr/bin/ar qc libmeshing.a CMakeFiles/meshing.dir/common.cpp.o
-/usr/bin/ranlib libmeshing.a

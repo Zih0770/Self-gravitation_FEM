@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/benchmark.dir/benchmark.cpp.o -o /home/sssou/Self-gravitation_FEM/bin/benchmark  -Wl,-rpath,/home/sssou/local/gmsh/lib libmeshing.a /home/sssou/local/gmsh/lib/libgmsh.so 
