@@ -1,7 +1,6 @@
 // Sample run:
-// ./Phobos_mesh -out mesh/Phobos -h
-// 0.1-0.5 -o 2 -buf 0.2 -alg 1 -alg2d 6 -Rref 11 -data
-// data/PhobosRadius_reordered.out -decay_thickness 1
+// bin/Phobos -data data/PhobosRadius.out -out data/Phobos -h 0.1-0.5 -o 2 -buf
+// 0.5 -alg 1 -alg2d 6 -Rref 11  -decay_thickness 5
 
 #include <gmsh.h>
 
@@ -10,12 +9,12 @@
 int main(int argc, char** argv) {
   try {
     double meshSizeMin = 0.1, meshSizeMax = 0.5;  // km
-    double buffer_ratio = 0.3;                       // non-dim
+    double buffer_ratio = 0.5;                    // non-dim.
     int elementOrder = 2, alg3d = 1, alg2d = 6;
     double Rref = 11.0;
-    double decay_thickness = 1;
-    std::string outputFileName = "mesh/Phobos";
-    std::string dataFile = "data/PhobosRadius_reordered.out";
+    double decay_thickness = 5;
+    std::string outputFileName = "data/Phobos";
+    std::string dataFile = "data/PhobosRadius.out";
 
     for (int i = 1; i < argc; ++i) {
       std::string arg = argv[i];
@@ -52,7 +51,7 @@ int main(int argc, char** argv) {
     gmsh::initialize();
     gmsh::model::add("Phobos");
 
-    double pre_topo = 1.0; 
+    double pre_topo = 1.0;
     double outer_bdr = pre_topo * (1 + buffer_ratio);
 
     Topography topo(dataFile, Rref * 1e3);
@@ -98,8 +97,6 @@ int main(int argc, char** argv) {
     // Meshing
     gmsh::option::setNumber("Mesh.MeshSizeMin", hmin);
     gmsh::option::setNumber("Mesh.MeshSizeMax", hmax);
-    //gmsh::option::setNumber("Mesh.SecondOrderLinear", 0);
-    //gmsh::option::setNumber("Mesh.HighOrderOptimize", 1);
     gmsh::option::setNumber("Mesh.ElementOrder", elementOrder);
     gmsh::option::setNumber("Mesh.Algorithm", alg2d);
     gmsh::option::setNumber("Mesh.Algorithm3D", alg3d);
