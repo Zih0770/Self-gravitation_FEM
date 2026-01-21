@@ -1,6 +1,9 @@
 This repository serves as the code basis supporting the results in the paper...on self-gravitation computations in an infinite domain. Two approaches are implemented to treat the unbounded domain: the Dirichlet-to-Neumann (DtN) mapping and the multipole expansion method. The C++ classes for implementing these two approaches were developed in the library **mfemElasticity**.  
 
-Three examples are provided for computing within different configurations: \ examples/ex1: offset sphere benchmark \ examples/ex2: PREM Earth model \ examples/ex3: Phobos model \
+Three examples are provided for computing within different configurations: \ 
+examples/ex1: offset sphere benchmark \ 
+examples/ex2: PREM Earth model \ 
+examples/ex3: Phobos model \
 
 ## Compilation and Dependencies
 
