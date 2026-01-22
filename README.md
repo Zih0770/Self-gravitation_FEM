@@ -9,7 +9,7 @@ Three examples are provided for computing within different configurations:
 
 To compile the example codes, the finite-element library **MFEM** (v4.7 or later) and its extension library **mfemElasticity** are required. Both libraries should be built with MPI enabled. MFEM should be built with **gslib** enabled, as gslib is used for solution interpolation in `ex2` and `ex3`. To compile the meshing codes, the library **gmsh** is required.
 
-After MFEM and mfemElasticity are built, the codes in this repository can be compiled using CMake as follows:
+After the dependencies are built, the codes in this repository can be compiled using CMake as follows:
 
 ```bash
 mkdir build
