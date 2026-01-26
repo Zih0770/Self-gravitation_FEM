@@ -183,19 +183,16 @@ int main(int argc, char *argv[]) {
   }
   const int num_layers = (int)layers_r_dim.size();
 
-  std::vector<std::unique_ptr<RadialInterpCoefficient>> layer_coeffs;
-  layer_coeffs.reserve(num_layers);
+  std::vector<std::unique_ptr<RadialInterpCoefficient>> layer_coeffs_dim;
+  layer_coeffs_dim.reserve(num_layers);
   for (int i = 0; i < num_layers; ++i) {
-    layer_coeffs.emplace_back(std::make_unique<RadialInterpCoefficient>(
+    layer_coeffs_dim.emplace_back(std::make_unique<RadialInterpCoefficient>(
         layers_r_dim[i], layers_rho_dim[i], L_scale));
   }
 
   Nondimensionalisation nd(L_scale, T_scale, RHO_scale);
-  real_t G = -4.0 * pi * G_dim * RHO_scale * T_scale * T_scale;
+  real_t G = -4.0 * pi * G_dim * T_scale * T_scale;
   ConstantCoefficient G_coeff(G);
-  if (myid == 0) {
-    cout << "RHS dimensionless number G = " << G << endl;
-  }
 
   Mesh mesh(mesh_file, 1, 1, true);
   ParMesh pmesh(MPI_COMM_WORLD, mesh);
@@ -234,7 +231,7 @@ int main(int argc, char *argv[]) {
 
   auto rho_coeff = PWCoefficient();
   for (int i = 1; i < num_layers; i++) {
-    rho_coeff.UpdateCoefficient(i, *(layer_coeffs[i - 1].get()));
+    rho_coeff.UpdateCoefficient(i, *(layer_coeffs_dim[i - 1].get()));
   }
   ProductCoefficient rhs_coeff(G_coeff, rho_coeff);
 
